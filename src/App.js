@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Container } from 'reactstrap';
+import SendMail from './SendMail';
+import WelcomePage from './WelcomePage';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Container style={{ margin: '20vw 20vh', fontSize: '2em'}}>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/askForCookiesRecipe" component={SendMail} />
+            <Route exact path="/" component={WelcomePage} />
+          </Switch>
+        </BrowserRouter>
+      </Container>
     );
   }
 }
